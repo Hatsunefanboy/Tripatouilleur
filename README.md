@@ -1,6 +1,6 @@
-# Tripatouilleur
+# Tripa
 
-`Tripatouilleur` is a Python package to create, open, extend, and animate `.tripa` files.
+`Tripa` is a Python package to create, open, extend, and animate `.tripa` files.
 
 License: MIT
 Author: Cognet Benjamin
@@ -8,7 +8,7 @@ Author: Cognet Benjamin
 ## Installation
 
 ```bash
-pip install tripatouilleur
+pip install tripa
 ```
 
 For local development:
@@ -20,7 +20,7 @@ pip install -e .
 ## Quick start
 
 ```python
-from tripatouilleur import FileTripa
+from tripa import FileTripa
 
 tripa = FileTripa.open("example.tripa")
 tripa.extend(2)
@@ -30,10 +30,10 @@ tripa.close()
 
 ## Package contents
 
-- `tripatouilleur.Tripa`: base class
-- `tripatouilleur.FileTripa`: work with `.tripa` archives on disk
-- `tripatouilleur.ImageTripa`: image-oriented helpers
-- `tripatouilleur.VirtualTripa`: in-memory triangle generation
+- `tripa.Tripa`: base class
+- `tripa.FileTripa`: work with `.tripa` archives on disk
+- `tripa.ImageTripa`: image-oriented helpers
+- `tripa.VirtualTripa`: in-memory triangle generation
 
 ## Build a distribution
 

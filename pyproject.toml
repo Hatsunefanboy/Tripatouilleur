@@ -3,8 +3,8 @@ requires = ["setuptools>=65.5", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tripatouilleur"
-version = "0.1.1"
+name = "tripa"
+version = "0.2.0"
 description = "Utilities to create, open, extend, and animate .tripa files."
 readme = "README.md"
 license = "MIT"
@@ -38,7 +38,7 @@ include-package-data = true
 where = ["src"]
 
 [tool.setuptools.package-data]
-tripatouilleur = [
+tripa = [
   "tripa/forwards_tripa/images/*.py",
   "tripa/saved_tripa/*.tripa",
 ]
