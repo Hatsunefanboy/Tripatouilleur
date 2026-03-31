@@ -223,30 +223,32 @@ class FileTripa(Tripa):
 
 
 class VirtualTripa(Tripa):
-    def __init__(self,seed0,forward,dynamic=False,default=None):
-        self.seeds={(0,0):seed0}
-        self.forward=forward
-        self.default= [default]
-        self.height=1
-        self.dynamic=dynamic
+    def __init__(self, seed0, default, forward, dynamic=False):
+        self.seeds = {(0, 0): seed0}
+        self.default = [default]
+        self.forward = forward
+        self.height = 1
+        self.dynamic = dynamic
 
-    def _read_seed(self,i,j):
-        return self.seeds[(i,j)]
+    def _read_seed(self, i, j):
+        return self.seeds[(i, j)]
 
-    def extend(self,n):
-        height=self.height
-        for i in range(height-1 ,height+n-1):
+    def extend(self, n):
+        height = self.height
+        for i in range(height - 1, height + n - 1):
             if self.dynamic:
-                self.default.append(self.forward(self.default[i],self.default[i]))
-                self.seeds[(i+1,0)]=self.forward(self.default[i],self.seeds[(i,0)])
+                self.default.append(self.forward(self.default[i], self.default[i]))
+                self.seeds[(i + 1, 0)] = self.forward(self.default[i], self.seeds[(i, 0)])
             else:
-                self.seeds[(i+1,0)]=self.forward(self.default[0],self.seeds[(i,0)])
+                self.seeds[(i + 1, 0)] = self.forward(self.default[0], self.seeds[(i, 0)])
             for j in range(i):
-                self.seeds[(i+1,j+1)]=self.forward(self.seeds[(i,j)],self.seeds[(i,j+1)])
+                self.seeds[(i + 1, j + 1)] = self.forward(self.seeds[(i, j)], self.seeds[(i, j + 1)])
             if self.dynamic:
-                self.seeds[(i+1,i+1)]=self.forward(self.seeds[(i,i)],self.default[i])
+                self.seeds[(i + 1, i + 1)] = self.forward(self.seeds[(i, i)], self.default[i])
             else:
-                self.seeds[(i+1,i+1)]=self.forward(self.seeds[(i,i)],self.default[0])
+                self.seeds[(i + 1, i + 1)] = self.forward(self.seeds[(i, i)], self.default[0])
+        self.height += n
+        return self
 
 
 class ImageTripa(FileTripa):

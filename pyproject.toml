@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tripatouilleur"
-version = "0.1.0"
+version = "0.1.1"
 description = "Utilities to create, open, extend, and animate .tripa files."
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
 requires-python = ">=3.10"
 authors = [
   { name = "Cognet Benjamin" },
@@ -19,7 +19,6 @@ keywords = ["tripa", "image", "art", "python"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.10",
@@ -27,6 +26,10 @@ classifiers = [
   "Operating System :: OS Independent",
   "Topic :: Multimedia :: Graphics",
 ]
+
+[project.urls]
+Homepage = "https://github.com/Hatsunefanboy/Tripatouilleur"
+Repository = "https://github.com/Hatsunefanboy/Tripatouilleur"
 
 [tool.setuptools]
 include-package-data = true
